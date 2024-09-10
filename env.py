@@ -8,3 +8,4 @@ class Telegram:
     def __init__(self):
         self.token = os.getenv('BOT_TOKEN')
         self.url = os.getenv('URL')
+        self.admins = os.getenv('ADMINS')
