@@ -17,6 +17,7 @@ from aiogram.types import (
 )
 
 from tasks.tasks import router as task_router
+from profiles.profile import router as profile_router
 
 
 telegram = Telegram()
@@ -27,10 +28,11 @@ router = Router()
 async def command_start(message: Message) -> None:
 
     if await check_telegram_ids(message.from_user.id):
-        await message.answer(f"{await time_for_dialog()}, {message.from_user.first_name}", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+        await message.answer(f"{await time_for_dialog()}, {message.from_user.first_name}",
+                              reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="Задания", callback_data="tasks")],
-            [InlineKeyboardButton(text="Электронный журнал", web_app=WebAppInfo(url="https://clck.ru/3DDstW"))]
+            [InlineKeyboardButton(text="Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
         ]))
     else:
         await message.answer(text="У вас нет доступа к данному боту")
@@ -57,7 +59,7 @@ async def main():
 
     dp = Dispatcher()
 
-    dp.include_routers(router, task_router)
+    dp.include_routers(router, task_router, profile_router)
 
     # Start event dispatching
     await dp.start_polling(bot)
