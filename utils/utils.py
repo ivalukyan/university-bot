@@ -1,6 +1,8 @@
 import pytz
+import pandas as pd
 
 from datetime import datetime
+from database.db import Session, User
 from aiogram.types import (
     InlineKeyboardButton,
     Message,
@@ -10,7 +12,9 @@ from aiogram.types import (
 
 async def check_telegram_ids(user_id: int) -> bool:
 
-    telegram_ids = [877008114]
+    db_session = Session()
+    ids = db_session.query(User.telegram_id).all()
+    telegram_ids = [_[0] for _ in ids]
 
     if user_id in telegram_ids:
         return True
@@ -46,12 +50,12 @@ async def create_calandar(month: int) -> list:
 
         for _ in range(6):
 
-            week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}-{m}-{y}"))
+            week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
 
             day += 1
 
             if day == months[month]:
-                week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}-{m}-{y}"))
+                week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
                 break
 
         mon.append(week)
@@ -60,3 +64,19 @@ async def create_calandar(month: int) -> list:
     mon.append([InlineKeyboardButton(text="Назад", callback_data="back")])
 
     return mon
+
+
+async def insert_info_abt_users(fullname: str, telegram_id: int):
+    excel_data = pd.read_excel("files/users.xlsx")
+
+    ids = [_[1] for _ in excel_data.values.tolist()]
+
+    if not telegram_id in ids:
+        to_append_xlsx = pd.DataFrame({
+            'Имя пользователя': [fullname],
+            'ID пользователя': [telegram_id]
+        })
+
+        df = excel_data._append(to_append_xlsx, ignore_index=True)
+        
+        df.to_excel("files/users.xlsx", index=False)

@@ -6,18 +6,21 @@ import sys
 from env import Telegram
 from utils.utils import check_telegram_ids, time_for_dialog
 
-from aiogram import Bot, Dispatcher, Router, html
+from aiogram import Bot, Dispatcher, Router
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart, Command
 from aiogram.types import (
     InlineKeyboardButton,
     Message,
-    InlineKeyboardMarkup, WebAppInfo,
+    InlineKeyboardMarkup, WebAppInfo, CallbackQuery
 )
 
 from tasks.tasks import router as task_router
 from profiles.profile import router as profile_router
+from admin.admin import router as admin_router
+
+from utils.utils import insert_info_abt_users
 
 
 telegram = Telegram()
@@ -27,8 +30,11 @@ router = Router()
 @router.message(CommandStart())
 async def command_start(message: Message) -> None:
 
-    if await check_telegram_ids(message.from_user.id):
-        await message.answer(f"{await time_for_dialog()}, {message.from_user.first_name}",
+    if not str(message.from_user.id) in telegram.admins:
+        await insert_info_abt_users(fullname=message.from_user.first_name, telegram_id=message.from_user.id)
+
+    if await check_telegram_ids(message.from_user.id) or (str(message.from_user.id) in telegram.admins):
+        await message.answer(f"{await time_for_dialog()}, {message.from_user.first_name}!\n\n<b><i>Created by @ivalkn</i></b>",
                               reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="Задания", callback_data="tasks")],
@@ -38,28 +44,13 @@ async def command_start(message: Message) -> None:
         await message.answer(text="У вас нет доступа к данному боту")
 
 
-@router.message(Command("admin"))
-async def command_admin(message: Message) -> None:
-
-    if str(message.from_user.id) in telegram.admins:
-        await message.answer(
-            f"Здравствуйте, {html.quote(message.from_user.first_name)},"
-            f" чтобы прейти в приложение Web App, нажмите кнопку",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-                [InlineKeyboardButton(text='University App', url=f"{telegram.url}")]
-            ]),
-        )
-    else:
-        await message.answer("У вас нет доступа к данному меню")
-
-
 async def main():
     # Initialize Bot instance with default bot properties which will be passed to all API calls
     bot = Bot(token=telegram.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
     dp = Dispatcher()
 
-    dp.include_routers(router, task_router, profile_router)
+    dp.include_routers(router, task_router, profile_router, admin_router)
 
     # Start event dispatching
     await dp.start_polling(bot)
