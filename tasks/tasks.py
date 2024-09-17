@@ -38,9 +38,9 @@ async def back(call: CallbackQuery) -> None:
 
     if await check_telegram_ids(call.message.chat.id) or (str(call.message.chat.id) in telegram.admins):
         await call.message.edit_text(f"{await time_for_dialog()}, {await fullname(call.message.chat)}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="Профиль", callback_data="profile")],
-            [InlineKeyboardButton(text="Задания", callback_data="tasks")],
-            [InlineKeyboardButton(text="Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
+            [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
+            [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
+            [InlineKeyboardButton(text="🗂 Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
         ]))
     else:
         await call.message.edit_text(text="У вас нет доступа к данному боту")
@@ -101,7 +101,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
