@@ -20,7 +20,7 @@ from tasks.tasks import router as task_router
 from profiles.profile import router as profile_router
 from admin.admin import router as admin_router
 
-from utils.utils import insert_info_abt_users
+from utils.utils import insert_info_abt_users, fullname
 
 
 telegram = Telegram()
@@ -34,7 +34,7 @@ async def command_start(message: Message) -> None:
         await insert_info_abt_users(fullname=message.from_user.first_name, telegram_id=message.from_user.id)
 
     if await check_telegram_ids(message.from_user.id) or (str(message.from_user.id) in telegram.admins):
-        await message.answer(f"{await time_for_dialog()}, {message.from_user.first_name}!\n\n<b><i>Created by @ivalkn</i></b>",
+        await message.answer(f"{await time_for_dialog()}, {await fullname(message.from_user.id)}!\n\n<b><i>Created by @ivalkn</i></b>",
                               reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="Задания", callback_data="tasks")],

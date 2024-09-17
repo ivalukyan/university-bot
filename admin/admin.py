@@ -74,6 +74,7 @@ async def mailing(message: Message, state: FSMContext) -> None:
 
     for _ in ids:
         await message.answer(message.text)
+    state.clear()
 
 
 @router.callback_query(F.data == "back_to_admin")
@@ -91,5 +92,4 @@ async def back_to_admin_panel(call: CallbackQuery) -> None:
 
 @router.callback_query(F.data == "file")
 async def file(call: CallbackQuery) -> None:
-
     await call.message.answer_document(document=FSInputFile('files/users.xlsx'))

@@ -11,7 +11,7 @@ from aiogram.types import (
 )
 
 from datetime import datetime
-from utils.utils import create_calandar, check_telegram_ids, time_for_dialog
+from utils.utils import create_calandar, check_telegram_ids, time_for_dialog, fullname
 from database.db import Session, Task
 from utils.translations import numerals
 from env import Telegram
@@ -37,7 +37,7 @@ async def tasks(call: CallbackQuery) -> None:
 async def back(call: CallbackQuery) -> None:
 
     if await check_telegram_ids(call.message.chat.id) or (str(call.message.chat.id) in telegram.admins):
-        await call.message.edit_text(f"{await time_for_dialog()}, {call.message.chat.first_name}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+        await call.message.edit_text(f"{await time_for_dialog()}, {await fullname(call.message.chat.id)}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="Задания", callback_data="tasks")],
             [InlineKeyboardButton(text="Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]

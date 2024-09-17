@@ -80,3 +80,11 @@ async def insert_info_abt_users(fullname: str, telegram_id: int):
         df = excel_data._append(to_append_xlsx, ignore_index=True)
         
         df.to_excel("files/users.xlsx", index=False)
+
+
+async def fullname(telegram_id: int) -> str:
+
+    db_session = Session()
+    result = db_session.query(User).filter(User.telegram_id == telegram_id).first()
+
+    return result.fullname
