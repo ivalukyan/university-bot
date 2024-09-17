@@ -12,6 +12,8 @@ from aiogram.types import FSInputFile
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 
+from main import bot
+
 from database.db import Session, User
 
 telegram = Telegram()
@@ -73,8 +75,8 @@ async def mailing(message: Message, state: FSMContext) -> None:
     ids = [_[0] for _ in telegram_ids]
 
     for _ in ids:
-        await message.answer(message.text)
-    state.clear()
+        await bot.send_message(_, message.text)
+    await state.clear()
 
 
 @router.callback_query(F.data == "back_to_admin")

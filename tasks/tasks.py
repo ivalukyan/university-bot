@@ -37,7 +37,7 @@ async def tasks(call: CallbackQuery) -> None:
 async def back(call: CallbackQuery) -> None:
 
     if await check_telegram_ids(call.message.chat.id) or (str(call.message.chat.id) in telegram.admins):
-        await call.message.edit_text(f"{await time_for_dialog()}, {await fullname(call.message.chat.id)}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+        await call.message.edit_text(f"{await time_for_dialog()}, {await fullname(call.message.chat)}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="Задания", callback_data="tasks")],
             [InlineKeyboardButton(text="Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]

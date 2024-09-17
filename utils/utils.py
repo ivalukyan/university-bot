@@ -82,9 +82,11 @@ async def insert_info_abt_users(fullname: str, telegram_id: int):
         df.to_excel("files/users.xlsx", index=False)
 
 
-async def fullname(telegram_id: int) -> str:
+async def fullname(message) -> str:
 
     db_session = Session()
-    result = db_session.query(User).filter(User.telegram_id == telegram_id).first()
+    result = db_session.query(User).filter(User.telegram_id == message.id).first()
 
+    if not result:
+        return message.first_name
     return result.fullname
