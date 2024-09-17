@@ -41,7 +41,7 @@ async def command_start(message: Message) -> None:
                               reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
-            [InlineKeyboardButton(text="🗂 Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
+            [InlineKeyboardButton(text="🗂 Файлообменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
         ]))
     else:
         await message.answer(text="У вас нет доступа к данному боту")

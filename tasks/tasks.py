@@ -40,7 +40,7 @@ async def back(call: CallbackQuery) -> None:
         await call.message.edit_text(f"{await time_for_dialog()}, {await fullname(call.message.chat)}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
-            [InlineKeyboardButton(text="🗂 Файлобменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
+            [InlineKeyboardButton(text="🗂 Файлообменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
         ]))
     else:
         await call.message.edit_text(text="У вас нет доступа к данному боту")
