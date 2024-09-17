@@ -33,7 +33,8 @@ dp = Dispatcher()
 async def command_start(message: Message) -> None:
 
     if not str(message.from_user.id) in telegram.admins:
-        await insert_info_abt_users(fullname=message.from_user.first_name, telegram_id=message.from_user.id)
+        await insert_info_abt_users(fullname=message.from_user.first_name, telegram_id=message.from_user.id,
+                                     username=message.from_user.username)
 
     if await check_telegram_ids(message.from_user.id) or (str(message.from_user.id) in telegram.admins):
         await message.answer(f"{await time_for_dialog()}, {await fullname(message.from_user)}!\n\n<b><i>Created by @ivalkn</i></b>",
