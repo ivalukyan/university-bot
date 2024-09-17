@@ -69,7 +69,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -133,7 +133,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -165,7 +165,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -198,7 +198,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -231,7 +231,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -263,7 +263,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -296,7 +296,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -329,7 +329,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -361,7 +361,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -394,7 +394,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -427,7 +427,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -460,7 +460,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -493,7 +493,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -526,7 +526,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -558,7 +558,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -591,7 +591,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -624,7 +624,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -657,7 +657,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -690,7 +690,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -723,7 +723,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -756,7 +756,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -789,7 +789,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -822,7 +822,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -855,7 +855,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -888,7 +888,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -920,7 +920,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -952,7 +952,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -985,7 +985,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -1017,7 +1017,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
@@ -1050,7 +1050,7 @@ async def day_info(call: CallbackQuery) -> None:
     else:
         msg = ""
         for _ in text:
-            msg += f"<b>Предмет:</b> {_.subject}\n<b>Тип:</b> {_.type}\n<b>Задание</b>: {_.task}\n\n"
+            msg += f"🗂 <b>Предмет:</b> {_.subject}\n📒 <b>Тип:</b> {_.type}\n📌 <b>Задание</b>: {_.task}\n\n"
 
         await call.message.edit_text(msg,
                                       reply_markup=InlineKeyboardMarkup(inline_keyboard=[
