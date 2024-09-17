@@ -66,7 +66,7 @@ async def create_calandar(month: int) -> list:
     return mon
 
 
-async def insert_info_abt_users(fullname: str, telegram_id: int):
+async def insert_info_abt_users(fullname: str, telegram_id: int, username: str):
     excel_data = pd.read_excel("files/users.xlsx")
 
     ids = [_[1] for _ in excel_data.values.tolist()]
@@ -74,7 +74,8 @@ async def insert_info_abt_users(fullname: str, telegram_id: int):
     if not telegram_id in ids:
         to_append_xlsx = pd.DataFrame({
             'Имя пользователя': [fullname],
-            'ID пользователя': [telegram_id]
+            'ID пользователя': [telegram_id],
+            'Ник пользователя': [username]
         })
 
         df = excel_data._append(to_append_xlsx, ignore_index=True)
