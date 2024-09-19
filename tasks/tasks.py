@@ -26,10 +26,15 @@ async def tasks(call: CallbackQuery) -> None:
     tz_Moscow = pytz.timezone('Europe/Moscow')
     date = datetime.now(tz=tz_Moscow).strftime("%d-%m-%Y")
     m = datetime.now(tz=tz_Moscow).month
+    y = datetime.now(tz=tz_Moscow).year
+    d = datetime.now(tz=tz_Moscow).day
+
+    weeks = {'Mon': 'Пн', 'Tue': 'Вт', 'Wed': 'Ср', 'Thu': 'Чт', 'Fri': 'Пт', 'Sat': 'Сб', 'Sun': 'Вс'}
 
     keyboard = await create_calandar(m)
 
-    await call.message.edit_text(text=f"Выберите дату, Сегодня: {html.italic(html.bold(date))}",
+    await call.message.edit_text(text=f"Выберите дату, Сегодня: {html.italic(html.bold(date))} - "
+                                 f"{html.italic(html.bold(weeks[datetime(y, m, d).strftime('%a')]))}",
                                   reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard))
     
 
