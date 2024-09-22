@@ -45,6 +45,8 @@ async def back(call: CallbackQuery) -> None:
         await call.message.edit_text(f"{await time_for_dialog()}, {await fullname(call.message.chat)}!\n\n<b><i>Created by @ivalkn</i></b>", reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
+            [InlineKeyboardButton(text="📒 Зачеты/Экзамены", callback_data="tests_and_exams")],
+            [InlineKeyboardButton(text="📍 Возможности бота", callback_data="bot_features")],
             [InlineKeyboardButton(text="🗂 Файлообменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
         ]))
     else:
@@ -66,7 +68,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]

@@ -18,6 +18,8 @@ from aiogram.types import (
 
 from tasks.tasks import router as task_router
 from profiles.profile import router as profile_router
+from tests_and_exams.test_and_exam import router as tests_info_router
+from help_module.bot_features import router as bot_features_router
 from admin import admin
 
 from utils.utils import insert_info_abt_users, fullname
@@ -41,6 +43,8 @@ async def command_start(message: Message) -> None:
                               reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
             [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
+            [InlineKeyboardButton(text="📒 Зачеты/Экзамены", callback_data="tests_and_exams")],
+            [InlineKeyboardButton(text="📍 Возможности бота", callback_data="bot_features")],
             [InlineKeyboardButton(text="🗂 Файлообменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
         ]))
     else:
@@ -50,7 +54,7 @@ async def command_start(message: Message) -> None:
 async def main():
     # Initialize Bot instance with default bot properties which will be passed to all API calls
 
-    dp.include_routers(router, task_router, admin.router, profile_router)
+    dp.include_routers(router, task_router, admin.router, profile_router, bot_features_router, tests_info_router)
 
     # Start event dispatching
     await dp.start_polling(bot)
