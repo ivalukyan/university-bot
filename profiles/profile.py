@@ -26,8 +26,8 @@ async def read_profile(call: CallbackQuery) -> None:
 
 @router.callback_query(F.data == 'subjects')
 async def view_subjects(call: CallbackQuery):
-    await call.message.edit_text("Предметы", reply_markup=InlineKeyboardMarkup(
-        inline_keyboard=[
+    await call.message.edit_text("Предметы\n\n ‼️ Чтобы на телефоне изменить файл нужны Google Документы ‼️",
+                                  reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="📕 САПР", callback_data="sapr")],
             [InlineKeyboardButton(text="📗 Социальная педагогика", callback_data="pedagogy")],
             [InlineKeyboardButton(text="Назад", callback_data="back_for_subjects")]
@@ -39,7 +39,7 @@ async def view_subjects(call: CallbackQuery):
 async def pedagogy(call: CallbackQuery):
       await call.message.edit_text("Социяльная психология и педагогика", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                  [InlineKeyboardButton(text="✏️ Темы презентаций", url="https://clck.ru/3DTXB4")],
+                  [InlineKeyboardButton(text="✏️ Темы презентаций", web_app=WebAppInfo(url="https://clck.ru/3DTXB4"))],
                   [InlineKeyboardButton(text="Назад", callback_data="back_to_subject")]
             ]
       ))
@@ -57,7 +57,7 @@ async def capr(call: CallbackQuery):
 
 @router.callback_query(F.data == "back_to_subject")
 async def back_to_subjects(call: CallbackQuery):
-    await call.message.edit_text("Предметы", reply_markup=InlineKeyboardMarkup(
+    await call.message.edit_text("Предметы\n\n ‼️ Чтобы на телефоне изменить файл нужны Google Документы ‼️", reply_markup=InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text="📕 САПР ", callback_data="sapr")],
             [InlineKeyboardButton(text="📗 Социальная педагогика", callback_data="pedagogy")],
