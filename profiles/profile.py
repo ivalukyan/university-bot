@@ -20,7 +20,6 @@ async def read_profile(call: CallbackQuery) -> None:
             [InlineKeyboardButton(text="🖥 СДО", web_app=WebAppInfo(url="https://online-edu.mirea.ru/login/"))],
             [InlineKeyboardButton(text="📸 Сканер QR ", web_app=WebAppInfo(url="https://attendance-app.mirea.ru/selfapprove"))],
             [InlineKeyboardButton(text="📚 Предметы", callback_data="subjects")],
-            [InlineKeyboardButton(text="🔗 Темы для курсовой", web_app=WebAppInfo(url="https://clck.ru/3DMcY9"))],
             [InlineKeyboardButton(text="Назад", callback_data="back")]
     ]))
 
@@ -73,6 +72,5 @@ async def back_for_subjects(call: CallbackQuery):
             [InlineKeyboardButton(text="🖥 СДО", web_app=WebAppInfo(url="https://online-edu.mirea.ru/login/"))],
             [InlineKeyboardButton(text="📸 Сканер QR ", web_app=WebAppInfo(url="https://attendance-app.mirea.ru/selfapprove"))],
             [InlineKeyboardButton(text="📚 Предметы", callback_data="subjects")],
-            [InlineKeyboardButton(text="🔗 Темы для курсовой", web_app=WebAppInfo(url="https://clck.ru/3DMcY9"))],
             [InlineKeyboardButton(text="Назад", callback_data="back")]
     ]))
