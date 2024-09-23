@@ -28,8 +28,8 @@ async def read_profile(call: CallbackQuery) -> None:
 async def view_subjects(call: CallbackQuery):
     await call.message.edit_text("Предметы", reply_markup=InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="📕 САПР Констр. РС", callback_data="sapr")],
-            [InlineKeyboardButton(text="📗 Социальная пед. и психол.", callback_data="pedagogy")],
+            [InlineKeyboardButton(text="📕 САПР", callback_data="sapr")],
+            [InlineKeyboardButton(text="📗 Социальная педагогика", callback_data="pedagogy")],
             [InlineKeyboardButton(text="Назад", callback_data="back_for_subjects")]
         ]
     ))
@@ -39,7 +39,7 @@ async def view_subjects(call: CallbackQuery):
 async def pedagogy(call: CallbackQuery):
       await call.message.edit_text("Социяльная психология и педагогика", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                  [InlineKeyboardButton(text="Темы презентаций", web_app=WebAppInfo(url="https://clck.ru/3DTVVa"))],
+                  [InlineKeyboardButton(text="✏️ Темы презентаций", web_app=WebAppInfo(url="https://clck.ru/3DTVVa"))],
                   [InlineKeyboardButton(text="Назад", callback_data="back_to_subject")]
             ]
       ))
@@ -60,7 +60,7 @@ async def back_to_subjects(call: CallbackQuery):
     await call.message.edit_text("Предметы", reply_markup=InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text="📕 САПР ", callback_data="sapr")],
-            [InlineKeyboardButton(text="📗 Социалогия", callback_data="pedagogy")],
+            [InlineKeyboardButton(text="📗 Социальная педагогика", callback_data="pedagogy")],
             [InlineKeyboardButton(text="Назад", callback_data="back_for_subjects")]
         ]
     ))
