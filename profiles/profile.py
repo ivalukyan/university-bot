@@ -27,7 +27,7 @@ async def read_profile(call: CallbackQuery) -> None:
 @router.callback_query(F.data == 'subjects')
 async def view_subjects(call: CallbackQuery):
     await call.message.edit_text("Предметы\n\n ‼️ Чтобы на телефоне изменить файл нужны Google Документы, Google Таблицы.\n"
-                                 "Вас атоматически перенаправит когда вы зайдете в браузер.‼️",
+                                 "Для айфонов нужно нажать справа внизу на иконку сафари после того как нажали кнопку.‼️",
                                   reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="📕 САПР", callback_data="sapr")],
             [InlineKeyboardButton(text="📗 Социальная педагогика", callback_data="pedagogy")],
@@ -58,8 +58,8 @@ async def capr(call: CallbackQuery):
 
 @router.callback_query(F.data == "back_to_subject")
 async def back_to_subjects(call: CallbackQuery):
-    await call.message.edit_text("Предметы\n\n ‼️ Чтобы на телефоне изменить файл нужны Google Документы, Google Таблицы.\n"
-                                 "Вас атоматически перенаправит когда вы зайдете в браузер.‼️",
+    await call.message.edit_text("Предметы\n\n ‼️ Чтобы на телефоне изменить файл нужны Google Документы, Google Таблицы."
+                                 "Для айфонов нужно нажать справа внизу на иконку сафари после того как нажали кнопку.‼️",
                                 reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="📕 САПР ", callback_data="sapr")],
             [InlineKeyboardButton(text="📗 Социальная педагогика", callback_data="pedagogy")],
