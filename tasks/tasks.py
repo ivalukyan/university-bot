@@ -100,7 +100,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -132,7 +132,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -164,7 +164,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -197,7 +197,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -230,7 +230,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -262,7 +262,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -295,7 +295,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -328,7 +328,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -360,7 +360,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -393,7 +393,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -426,7 +426,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -459,7 +459,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -492,7 +492,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -525,7 +525,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -557,7 +557,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -590,7 +590,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -623,7 +623,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -656,7 +656,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -689,7 +689,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -722,7 +722,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -755,7 +755,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -788,7 +788,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -821,7 +821,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -854,7 +854,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -887,7 +887,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -919,7 +919,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -951,7 +951,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -984,7 +984,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -1016,7 +1016,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
@@ -1049,7 +1049,7 @@ async def day_info(call: CallbackQuery) -> None:
     text = db_session.query(Task).filter(Task.date == date).all()
 
     if not text:
-        await call.message.edit_text("Здание отсутствует", reply_markup=InlineKeyboardMarkup(
+        await call.message.edit_text("Задание отсутствует", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(text="Назад", callback_data="tasks")]
             ]
