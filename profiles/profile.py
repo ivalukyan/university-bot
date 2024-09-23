@@ -47,7 +47,7 @@ async def pedagogy(call: CallbackQuery):
 
 @router.callback_query(F.data == "sapr")
 async def capr(call: CallbackQuery):
-     await call.message.edit_text("САПР конструкций радиоэлектронных средств", reply_markup=InlineKeyboardMarkup(
+    await call.message.edit_text("САПР конструкций радиоэлектронных средств", reply_markup=InlineKeyboardMarkup(
           inline_keyboard=[
                [InlineKeyboardButton(text="✏️ Темы для курсовой", web_app=WebAppInfo(url="https://clck.ru/3DMcY9"))],
                [InlineKeyboardButton(text="Назад", callback_data="back_to_subject")]
@@ -57,10 +57,10 @@ async def capr(call: CallbackQuery):
 
 @router.callback_query(F.data == "back_to_subject")
 async def back_to_subjects(call: CallbackQuery):
-         await call.message.edit_text("Предметы", reply_markup=InlineKeyboardMarkup(
+    await call.message.edit_text("Предметы", reply_markup=InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="📕 САПР Констр. РС", callback_data="sapr")],
-            [InlineKeyboardButton(text="📗 Социальная пед. и психол.")],
+            [InlineKeyboardButton(text="📕 САПР ", callback_data="sapr")],
+            [InlineKeyboardButton(text="📗 Социалогия", callback_data="pedagogy")],
             [InlineKeyboardButton(text="Назад", callback_data="back_for_subjects")]
         ]
     ))
