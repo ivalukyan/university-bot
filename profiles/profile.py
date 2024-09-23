@@ -39,7 +39,7 @@ async def view_subjects(call: CallbackQuery):
 async def pedagogy(call: CallbackQuery):
       await call.message.edit_text("Социяльная психология и педагогика", reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
-                  [InlineKeyboardButton(text="✏️ Темы презентаций", web_app=WebAppInfo(url="https://clck.ru/3DTXB4"))],
+                  [InlineKeyboardButton(text="✏️ Темы презентаций", web_app=WebAppInfo(url="https://docs.google.com/spreadsheets/d/1bfTd4xqWPuaz2GzHJJpNcwAu9bC4RD1gVXp-HIPW4O8/edit?usp=sharing"))],
                   [InlineKeyboardButton(text="Назад", callback_data="back_to_subject")]
             ]
       ))
@@ -49,7 +49,7 @@ async def pedagogy(call: CallbackQuery):
 async def capr(call: CallbackQuery):
     await call.message.edit_text("САПР конструкций радиоэлектронных средств", reply_markup=InlineKeyboardMarkup(
           inline_keyboard=[
-               [InlineKeyboardButton(text="✏️ Темы для курсовой", web_app=WebAppInfo(url="https://clck.ru/3DMcY9"))],
+               [InlineKeyboardButton(text="✏️ Темы для курсовой", url="https://clck.ru/3DMcY9")],
                [InlineKeyboardButton(text="Назад", callback_data="back_to_subject")]
           ]
      ))
