@@ -31,7 +31,7 @@ async def view_subjects(call: CallbackQuery):
                                   reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="📕 САПР", url="https://clck.ru/3DMcY9")],
             [InlineKeyboardButton(text="📗 Социальная педагогика", url="https://clck.ru/3DTbH6")],
-            [InlineKeyboardButton(text="📙 Системы на кристалле", url="https://clck.ru/3DXgPD")]
+            [InlineKeyboardButton(text="📙 Системы на кристалле", url="https://clck.ru/3DXgPD")],
             [InlineKeyboardButton(text="Назад", callback_data="back_for_subjects")]
         ]
     ))
