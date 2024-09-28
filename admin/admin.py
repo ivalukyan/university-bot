@@ -38,7 +38,6 @@ async def command_admin(message: Message) -> None:
             f" чтобы прейти в приложение Web App, нажмите кнопку\n\n<b><i>Created by @ivalkn</i></b>",
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[
                 [InlineKeyboardButton(text='University App', url=f"{telegram.url}")],
-                [InlineKeyboardButton(text="Электронный журнал", url=f"{telegram.url_jurnal}")],
                 [InlineKeyboardButton(text="Рассылка", callback_data='mailing')],
                 [InlineKeyboardButton(text="ID пользователей", callback_data='file')]
             ]),
