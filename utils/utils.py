@@ -53,11 +53,11 @@ async def create_calandar(month: int) -> list:
 
     print(datetime(y, m, 1).strftime('%a'))
 
-    res = await wk(mon=mon, first_day=datetime(y, m, 1).strftime('%a'))
+    res = await wk(first_day=datetime(y, m, 1).strftime('%a'))
 
     day = res[1]
 
-    mon = res[0]
+    mon.append(res[0])
 
     while day != months[month]:
 
@@ -71,48 +71,43 @@ async def create_calandar(month: int) -> list:
 
                 if _ == 6:
                     mon.append(week)
-                    mon.append([InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"),
-                                InlineKeyboardButton(text="1", callback_data="data"),
-                                InlineKeyboardButton(text="2", callback_data="data"),
-                                InlineKeyboardButton(text="3", callback_data="data"),
-                                InlineKeyboardButton(text="4", callback_data="data"),
-                                InlineKeyboardButton(text="5", callback_data="data"),
-                                InlineKeyboardButton(text="6", callback_data="data")])
                     week = []
+                    week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
+                    for _ in range(7):
+                        week.append(InlineKeyboardButton(text=f" ", callback_data=f"data"))
                     break
                 elif _ == 5:
                     week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
-                    week.append(InlineKeyboardButton(text="1", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="2", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="3", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="4", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="5", callback_data="data"))
+                    for _ in range(6):
+                        week.append(InlineKeyboardButton(text=f" ", callback_data=f"data"))
                     break
 
                 elif _ == 4:
                     week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
-                    week.append(InlineKeyboardButton(text="1", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="2", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="3", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="4", callback_data="data"))
+                    for _ in range(5):
+                        week.append(InlineKeyboardButton(text=f" ", callback_data=f"data"))
+
                     break
 
                 elif _ == 3:
                     week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
-                    week.append(InlineKeyboardButton(text="1", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="2", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="3", callback_data="data"))
+                    for _ in range(4):
+                        week.append(InlineKeyboardButton(text=f" ", callback_data=f"data"))
+
                     break
 
                 elif _ == 2:
                     week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
-                    week.append(InlineKeyboardButton(text="1", callback_data="data"))
-                    week.append(InlineKeyboardButton(text="2", callback_data="data"))
+                    for _ in range(3):
+                        week.append(InlineKeyboardButton(text=f" ", callback_data=f"data"))
+
                     break
 
                 elif _ == 1:
                     week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"))
-                    week.append(InlineKeyboardButton(text="1", callback_data="data"))
+                    for _ in range(2):
+                        week.append(InlineKeyboardButton(text=f" ", callback_data=f"data"))
+
                     break
 
                 else:
@@ -122,8 +117,8 @@ async def create_calandar(month: int) -> list:
         mon.append(week)
         week = []
 
-    mon.append([InlineKeyboardButton(text="⬅️", callback_data=f"before_tasks"),
-                InlineKeyboardButton(text="➡️", callback_data=f"after_tasks")])
+    # mon.append([InlineKeyboardButton(text="⬅️", callback_data="before_tasks"),
+    #             InlineKeyboardButton(text="➡️", callback_data="after_tasks")])
     mon.append([InlineKeyboardButton(text="Назад", callback_data="back")])
 
     return mon
@@ -155,7 +150,7 @@ async def fullname(message) -> str:
     return result.fullname
 
 
-async def wk(mon: list, first_day: str):
+async def wk(first_day: str):
     months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
 
     tz_Moscow = pytz.timezone('Europe/Moscow')
@@ -164,52 +159,43 @@ async def wk(mon: list, first_day: str):
 
     week = []
 
-    last_month_date = int(months[m])
-
     if first_day == 'Mon':
         for _ in range(7):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 8
     elif first_day == 'Tue':
 
-        week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
-        for _ in range(1, 6):
+        week.append(InlineKeyboardButton(text=f" ", callback_data="data"))
+        for _ in range(1, 7):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 7
     elif first_day == 'Wed':
-        week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
-        for _ in range(1, 5):
+        for _ in range(2):
+            week.append(InlineKeyboardButton(text=f" ", callback_data="data"))
+        for _ in range(1, 6):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 6
     elif first_day == 'Thu':
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
-        for _ in range(1, 4):
+        for _ in range(3):
+            week.append(InlineKeyboardButton(text=f"", callback_data="data"))
+        for _ in range(1, 5):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 5
     elif first_day == 'Fri':
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 2}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
-        for _ in range(1, 3):
+        for _ in range(4):
+            week.append(InlineKeyboardButton(text=f" ", callback_data="data"))
+        for _ in range(1, 4):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 4
     elif first_day == 'Sat':
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 4}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 3}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 2}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
-        for _ in range(1, 2):
+        for _ in range(5):
+            week.append(InlineKeyboardButton(text=f" ", callback_data="data"))
+        for _ in range(1, 3):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 3
     elif first_day == 'Sun':
+        for _ in range(6):
+            week.append(InlineKeyboardButton(text=f" ", callback_data="data"))
+        week.append(InlineKeyboardButton(text="1", callback_data="1"))
 
-        mon.append([InlineKeyboardButton(text=f" ", callback_data="data"),
-                    InlineKeyboardButton(text=f" ", callback_data="data"),
-                    InlineKeyboardButton(text=f" ", callback_data="data"),
-                    InlineKeyboardButton(text=f" ", callback_data="data"),
-                    InlineKeyboardButton(text=f" ", callback_data="data"),
-                    InlineKeyboardButton(text=f" ", callback_data="data"),
-                    InlineKeyboardButton(text=f"1", callback_data=f"1")])
-        return mon, 2
+        return week, 2

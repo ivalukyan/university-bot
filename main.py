@@ -1,4 +1,3 @@
-
 import asyncio
 import logging
 import sys
@@ -24,7 +23,6 @@ from admin import admin
 
 from utils.utils import insert_info_abt_users, fullname
 
-
 telegram = Telegram()
 router = Router()
 bot = Bot(token=telegram.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
@@ -33,20 +31,21 @@ dp = Dispatcher()
 
 @router.message(CommandStart())
 async def command_start(message: Message) -> None:
-
     if not str(message.from_user.id) in telegram.admins:
         await insert_info_abt_users(fullname=message.from_user.first_name, telegram_id=message.from_user.id,
-                                     username=message.from_user.username)
+                                    username=message.from_user.username)
 
     if await check_telegram_ids(message.from_user.id) or (str(message.from_user.id) in telegram.admins):
-        await message.answer(f"{await time_for_dialog()}, {await fullname(message.from_user)}!\n\n<b><i>Created by @ivalkn</i></b>",
-                              reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
-            [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
-            [InlineKeyboardButton(text="📒 Зачеты/Экзамены", callback_data="tests_and_exams")],
-            [InlineKeyboardButton(text="📍 Возможности бота", callback_data="bot_features")],
-            [InlineKeyboardButton(text="🗂 Файлообменник", web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
-        ]))
+        await message.answer(
+            f"{await time_for_dialog()}, {await fullname(message.from_user)}!\n\n<b><i>Created by @ivalkn</i></b>",
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                [InlineKeyboardButton(text="👤 Профиль", callback_data="profile")],
+                [InlineKeyboardButton(text="📅 Задания", callback_data="tasks")],
+                [InlineKeyboardButton(text="📒 Зачеты/Экзамены", callback_data="tests_and_exams")],
+                [InlineKeyboardButton(text="📍 Возможности бота", callback_data="bot_features")],
+                [InlineKeyboardButton(text="🗂 Файлообменник",
+                                      web_app=WebAppInfo(url="https://disk.yandex.ru/d/CVeZ-lzETYnsuw"))]
+            ]))
     else:
         await message.answer(text="У вас нет доступа к данному боту")
 
