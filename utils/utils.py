@@ -205,11 +205,11 @@ async def wk(mon: list, first_day: str):
         return week, 3
     elif first_day == 'Sun':
 
-        mon.append([InlineKeyboardButton(text=f"{last_month_date - 5}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date - 4}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date - 3}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date - 2}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"),
+        mon.append([InlineKeyboardButton(text=f" ", callback_data="data"),
+                    InlineKeyboardButton(text=f" ", callback_data="data"),
+                    InlineKeyboardButton(text=f" ", callback_data="data"),
+                    InlineKeyboardButton(text=f" ", callback_data="data"),
+                    InlineKeyboardButton(text=f" ", callback_data="data"),
+                    InlineKeyboardButton(text=f" ", callback_data="data"),
                     InlineKeyboardButton(text=f"1", callback_data=f"1")])
         return mon, 2
