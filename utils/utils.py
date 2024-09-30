@@ -122,8 +122,8 @@ async def create_calandar(month: int) -> list:
         mon.append(week)
         week = []
 
-    mon.append([InlineKeyboardButton(text="", callback_data=f"before_tasks"),
-                InlineKeyboardButton(text="", callback_data=f"after_tasks")])
+    mon.append([InlineKeyboardButton(text="⬅️", callback_data=f"before_tasks"),
+                InlineKeyboardButton(text="➡️", callback_data=f"after_tasks")])
     mon.append([InlineKeyboardButton(text="Назад", callback_data="back")])
 
     return mon
