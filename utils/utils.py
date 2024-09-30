@@ -11,7 +11,6 @@ from aiogram.types import (
 
 
 async def check_telegram_ids(user_id: int) -> bool:
-
     db_session = Session()
     ids = db_session.query(User.telegram_id).all()
     telegram_ids = [_[0] for _ in ids]
@@ -22,7 +21,6 @@ async def check_telegram_ids(user_id: int) -> bool:
 
 
 async def time_for_dialog() -> str:
-
     tz_Moscow = pytz.timezone('Europe/Moscow')
     hour = datetime.now(tz=tz_Moscow).hour
 
@@ -32,17 +30,16 @@ async def time_for_dialog() -> str:
         return "Доброе утро"
     else:
         return "Добрый день"
-    
+
 
 async def create_calandar(month: int) -> list:
-
     tz_Moscow = pytz.timezone('Europe/Moscow')
     m = datetime.now(tz=tz_Moscow).month
     y = datetime.now(tz=tz_Moscow).year
 
     mon = []
     week = []
-    months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8:31, 9: 30, 10: 31, 11: 30, 12: 31}
+    months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
 
     mon.append([
         InlineKeyboardButton(text='Пн', callback_data='Mon'),
@@ -71,7 +68,7 @@ async def create_calandar(month: int) -> list:
             day += 1
 
             if day == months[month]:
-                
+
                 if _ == 6:
                     mon.append(week)
                     mon.append([InlineKeyboardButton(text=f"{day}", callback_data=f"{day}"),
@@ -125,6 +122,8 @@ async def create_calandar(month: int) -> list:
         mon.append(week)
         week = []
 
+    mon.append([InlineKeyboardButton(text="", callback_data=f"before_tasks"),
+                InlineKeyboardButton(text="", callback_data=f"after_tasks")])
     mon.append([InlineKeyboardButton(text="Назад", callback_data="back")])
 
     return mon
@@ -143,12 +142,11 @@ async def insert_info_abt_users(fullname: str, telegram_id: int, username: str):
         })
 
         df = excel_data._append(to_append_xlsx, ignore_index=True)
-        
+
         df.to_excel("files/users.xlsx", index=False)
 
 
 async def fullname(message) -> str:
-
     db_session = Session()
     result = db_session.query(User).filter(User.telegram_id == message.id).first()
 
@@ -158,8 +156,7 @@ async def fullname(message) -> str:
 
 
 async def wk(mon: list, first_day: str):
-
-    months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8:31, 9: 30, 10: 31, 11: 30, 12: 31}
+    months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
 
     tz_Moscow = pytz.timezone('Europe/Moscow')
     m = datetime.now(tz=tz_Moscow).month
@@ -185,34 +182,34 @@ async def wk(mon: list, first_day: str):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 6
     elif first_day == 'Thu':
-        week.append(InlineKeyboardButton(text=f"{last_month_date-1}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"))
         week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
         for _ in range(1, 4):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 5
     elif first_day == 'Fri':
-        week.append(InlineKeyboardButton(text=f"{last_month_date-2}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date-1}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 2}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"))
         week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
         for _ in range(1, 3):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 4
     elif first_day == 'Sat':
-        week.append(InlineKeyboardButton(text=f"{last_month_date-4}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date-3}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date-2}", callback_data="data"))
-        week.append(InlineKeyboardButton(text=f"{last_month_date-1}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 4}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 3}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 2}", callback_data="data"))
+        week.append(InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"))
         week.append(InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"))
         for _ in range(1, 2):
             week.append(InlineKeyboardButton(text=f"{_}", callback_data=f"{_}"))
         return week, 3
     elif first_day == 'Sun':
 
-        mon.append([InlineKeyboardButton(text=f"{last_month_date-5}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date-4}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date-3}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date-2}", callback_data="data"),
-                    InlineKeyboardButton(text=f"{last_month_date-1}", callback_data="data"),
+        mon.append([InlineKeyboardButton(text=f"{last_month_date - 5}", callback_data="data"),
+                    InlineKeyboardButton(text=f"{last_month_date - 4}", callback_data="data"),
+                    InlineKeyboardButton(text=f"{last_month_date - 3}", callback_data="data"),
+                    InlineKeyboardButton(text=f"{last_month_date - 2}", callback_data="data"),
+                    InlineKeyboardButton(text=f"{last_month_date - 1}", callback_data="data"),
                     InlineKeyboardButton(text=f"{last_month_date}", callback_data="data"),
                     InlineKeyboardButton(text=f"1", callback_data=f"1")])
         return mon, 2

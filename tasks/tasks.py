@@ -11,6 +11,9 @@ from aiogram.types import (
 )
 
 from datetime import datetime
+
+from aiogram.utils import keyboard
+
 from utils.utils import create_calandar, check_telegram_ids, time_for_dialog, fullname
 from database.db import Session, Task
 from utils.translations import numerals
@@ -23,6 +26,7 @@ dates = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
           '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'}
 
 
+# Создание календаря текущего месяца
 @router.callback_query(F.data == "tasks")
 async def tasks(call: CallbackQuery) -> None:
 
@@ -39,7 +43,51 @@ async def tasks(call: CallbackQuery) -> None:
     await call.message.edit_text(text=f"Выберите дату, Сегодня: {html.italic(html.bold(date))} - "
                                  f"{html.italic(html.bold(weeks[datetime(y, m, d).strftime('%a')]))}",
                                   reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard))
-    
+
+
+# Создание календаря прошлого месяца
+@router.callback_query(F.data == "before_tasks")
+async def before_tasks(call: CallbackQuery) -> None:
+    tz_Moscow = pytz.timezone('Europe/Moscow')
+    date = datetime.now(tz=tz_Moscow).strftime("%d-%m-%Y")
+    m = datetime.now(tz=tz_Moscow).month
+    y = datetime.now(tz=tz_Moscow).year
+    d = datetime.now(tz=tz_Moscow).day
+
+    weeks = {'Mon': 'Пн', 'Tue': 'Вт', 'Wed': 'Ср', 'Thu': 'Чт', 'Fri': 'Пт', 'Sat': 'Сб', 'Sun': 'Вс'}
+
+    keyboard = await create_calandar(m-1)
+
+    await call.message.edit_text(text=f"Выберите дату, Сегодня: {html.italic(html.bold(date))} - "
+                                      f"{html.italic(html.bold(weeks[datetime(y, m, d).strftime('%a')]))}",
+                                 reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard))
+
+
+# Создание календаря следущего месяца
+@router.callback_query(F.data == "after_tasks")
+async def after_tasks(call: CallbackQuery) -> None:
+    tz_Moscow = pytz.timezone('Europe/Moscow')
+    date = datetime.now(tz=tz_Moscow).strftime("%d-%m-%Y")
+    m = datetime.now(tz=tz_Moscow).month
+    y = datetime.now(tz=tz_Moscow).year
+    d = datetime.now(tz=tz_Moscow).day
+
+    weeks = {'Mon': 'Пн', 'Tue': 'Вт', 'Wed': 'Ср', 'Thu': 'Чт', 'Fri': 'Пт', 'Sat': 'Сб', 'Sun': 'Вс'}
+
+    keyboard = await create_calandar(m+1)
+
+    await call.message.edit_text(text=f"Выберите дату, Сегодня: {html.italic(html.bold(date))} - "
+                                      f"{html.italic(html.bold(weeks[datetime(y, m, d).strftime('%a')]))}",
+                                 reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard))
+
+
+@router.callback_query(F.data == "data")
+async def data(call: CallbackQuery) -> None:
+    await call.message.edit_text("Выберите следующий месяц или предыдущий",
+                                 reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                                     [InlineKeyboardButton(text="Назад", callback_data="tasks")]
+                                 ]))
+
 
 @router.callback_query(F.data == "back")
 async def back(call: CallbackQuery) -> None:
