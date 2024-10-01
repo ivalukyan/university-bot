@@ -40,6 +40,10 @@ async def create_calandar(month: int) -> list:
     mon = []
     week = []
     months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+    cal_months = {1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май', 6: 'Июнь', 7: 'Июль',
+                  8: 'Август', 9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'}
+
+    mon.append([InlineKeyboardButton(text=f"{cal_months[month]}", callback_data="mon")])
 
     mon.append([
         InlineKeyboardButton(text='Пн', callback_data='Mon'),
