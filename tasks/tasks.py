@@ -16,7 +16,7 @@ from aiogram.utils import keyboard
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 
-from utils.utils import create_calandar, check_telegram_ids, time_for_dialog, fullname
+from utils.utils import create_calandar, check_telegram_ids, time_for_dialog, fullname, genrate_dates
 from database.db import Session, Task
 from utils.translations import numerals
 from env import Telegram
@@ -29,6 +29,8 @@ dates = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
 
 months = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August',
           9: 'September', 10: 'October', 11:  'November', 12: 'December'}
+
+generate = genrate_dates()
 
 
 # Создание календаря текущего месяца
@@ -110,12 +112,15 @@ async def back(call: CallbackQuery) -> None:
         await call.message.edit_text(text="У вас нет доступа к данному боту")
 
 
-@router.callback_query(F.data.in_(dates))
+@router.callback_query(F.data.in_(generate))
 async def day_info(call: CallbackQuery) -> None:
-    tz_Moscow = pytz.timezone('Europe/Moscow')
-    y = datetime.now(tz=tz_Moscow).year
-    m = str(datetime.now(tz=tz_Moscow).month)
     d = call.data
+
+    date = call.data
+    date = date.split("-")
+    d = date[0]
+    m = date[1]
+    y = date[2]
 
     date = f'{numerals[d]}-{numerals[m]}-{y}'
     print(date)
