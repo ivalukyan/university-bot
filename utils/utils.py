@@ -70,7 +70,6 @@ async def create_calandar(month: int) -> list:
             day += 1
 
             if day == months[month]:
-
                 if len(week) == 7:
                     mon.append(week)
                     week = []
@@ -98,17 +97,21 @@ async def create_calandar(month: int) -> list:
                     break
                 elif len(week) == 2:
                     week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}-{month}-{y}"))
-                    for _ in range(4):
+                    for _ in range(5):
                         week.append(InlineKeyboardButton(text=" ", callback_data="data"))
-                    break                
-                
+                    break
+                elif len(week) == 1:
+                    week.append(InlineKeyboardButton(text=f"{day}", callback_data=f"{day}-{month}-{y}"))
+                    for _ in range(5):
+                        week.append(InlineKeyboardButton(text=" ", callback_data="data"))
+                    break
 
         mon.append(week)
         week = []
 
-    # mon.append([InlineKeyboardButton(text="⬅️", callback_data="before_tasks"),
-    #             InlineKeyboardButton(text="🏠", callback_data="tasks"),
-    #             InlineKeyboardButton(text="➡️", callback_data="after_tasks")])
+    mon.append([InlineKeyboardButton(text="⬅️", callback_data="before_tasks"),
+                InlineKeyboardButton(text="🏠", callback_data="tasks"),
+                InlineKeyboardButton(text="➡️", callback_data="after_tasks")])
     mon.append([InlineKeyboardButton(text="Назад", callback_data="back")])
 
     return mon
